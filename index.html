@@ -1,3 +1,11 @@
+<?php
+$url = "https://www.bitstamp.net/api/ticker/";
+$fgc = file_get_contents($url);
+$json = json_decode($fgc, true);
+
+$price = $json["last"];
+?>
+<!DOCTYPE html>
 <html>
 <header>
 <meta>
@@ -5,7 +13,7 @@
   <p><h1><b>Money Man’s Investment</b></h1></p>
 </header>
 <body>
-Money Man was paid an advance of <b>14.72303252</b> Bitcoin or <b>$1,000,000</b> on <b>November 9th, 2021</b>. This same <b>14.72303252</b> bitcoin is currently worth _____.<br><br>
+Money Man was paid an advance of <b>14.72303252</b> Bitcoin or <b>$1,000,000</b> on <b>November 9th, 2021</b>. This same <b>14.72303252</b> bitcoin is currently worth <?php echo $price; ?>.<br><br>
 
 This means he’s made/lost _____ <br><br>
 For a _____% loss/profit
@@ -16,9 +24,7 @@ For a _____% loss/profit
 <script>
 !function(){var e=document.getElementsByTagName("script"),t=e[e.length-1],n=document.createElement("script");function r(){var e=crCryptocoinPriceWidget.init({base:"USD",items:"BTC",backgroundColor:"FFFFFF",streaming:"1",rounded:"1",boxShadow:"1",border:"1"});t.parentNode.insertBefore(e,t)}n.src="https://co-in.io/widget/pricelist.js?items=BTC",n.async=!0,n.readyState?n.onreadystatechange=function(){"loaded"!=n.readyState&&"complete"!=n.readyState||(n.onreadystatechange=null,r())}:n.onload=function(){r()},t.parentNode.insertBefore(n,null)}();
 </script>
-  
-<script type=”text/javascript” src=”http://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js” ></script>
-<script type=”text/javascript” src=”https://cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js“></script>
+ 
   
 </body>
 </html>
